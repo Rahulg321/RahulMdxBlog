@@ -8,6 +8,7 @@ import { montserrat, source_code_pro, syne } from "./fonts";
 import { baseUrl } from "./sitemap";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Navbar } from "@/components/nav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -73,6 +74,7 @@ export default function RootLayout({
           <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
             <Navbar />
             {children}
+            <Footer />
           </main>
         </ThemeProvider>
       </body>

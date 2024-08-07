@@ -105,6 +105,19 @@
   .lead {
     @apply text-xl text-muted-foreground;
   }
+
+  ul {
+    @apply list-disc px-4 my-4;
+  }
+
+  ol {
+    @apply list-decimal px-4 my-4;
+  }
+}
+
+::selection {
+  background-color: purple; /* Background color on selection */
+  color: white; /* Text color on selection (optional) */
 }
 
 body,
@@ -126,16 +139,27 @@ h6 {
   font-family: var(--font-montserrat);
 }
 
-/* Font for prose content */
-.prose pre,
-.prose code {
-  font-family: var(--font-source-code-pro);
-}
-
 /* Font for code blocks and inline code */
 pre,
 code {
   font-family: var(--font-source-code-pro);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5 {
+  margin-top: 1.5rem;
+}
+
+pre {
+  @apply p-4 overflow-scroll mt-8 overflow-y-auto;
+}
+
+pre,
+code {
+  @apply bg-neutral-900 rounded-lg dark:bg-neutral-900;
 }
 
 .parent-container {
@@ -168,12 +192,12 @@ code {
 
 .blog-index {
   display: columns;
-  columns: 4;
+  columns: 3;
 }
 
 .blog-index > * {
   break-inside: avoid;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 
 /* 
@@ -201,11 +225,6 @@ code {
   }
 } */
 
-@media screen and (max-width: 1024px) {
-  .blog-index {
-    columns: 3;
-  }
-}
 @media screen and (max-width: 768px) {
   .blog-index {
     columns: 2;
@@ -216,31 +235,4 @@ code {
   .blog-index {
     columns: 1;
   }
-}
-
-.prose .anchor {
-  @apply absolute invisible no-underline;
-
-  margin-left: -1em;
-  padding-right: 0.5em;
-  width: 80%;
-  max-width: 700px;
-  cursor: pointer;
-}
-
-.anchor:hover {
-  @apply visible;
-}
-
-.prose a {
-  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
-}
-
-.prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
-  content: "#";
-}
-
-.prose *:hover > .anchor {
-  @apply visible;
 }

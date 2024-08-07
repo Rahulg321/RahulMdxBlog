@@ -4,6 +4,9 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
 import { TweetComponent } from "./tweet";
+import ResuableHoverCard from "./ResuableHoverCard";
+import ReusableHoverCard from "./ResuableHoverCard";
+import TextBadge from "./TextBadge";
 
 function Table({ data }: any) {
   let headers = data.headers.map((header: any, index: any) => (
@@ -30,7 +33,7 @@ function Table({ data }: any) {
 function ProsCard({ title, pros }: any) {
   return (
     <div className="border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full">
-      <h5>{`${title}`}</h5>
+      <span className="font-semibold">{`${title}`}</span>
       <div className="mt-4">
         {pros.map((pro: any) => (
           <div key={pro} className="flex font-medium items-baseline mb-2">
@@ -59,7 +62,7 @@ function ProsCard({ title, pros }: any) {
 function ConsCard({ title, cons }: any) {
   return (
     <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-6 w-full">
-      <h5>{`${title}`}</h5>
+      <span className="font-semibold">{`${title}`}</span>
       <div className="mt-4">
         {cons.map((con: any) => (
           <div key={con} className="flex font-medium items-baseline mb-2">
@@ -156,6 +159,15 @@ function Callout({ children, emoji }: any) {
   );
 }
 
+function IconBadge({ icon, tag }: { icon: any; tag: string }) {
+  return (
+    <span className="inline-block px-2 bg-neutral-200 dark:bg-neutral-600 rounded-full">
+      {icon}
+      {tag}
+    </span>
+  );
+}
+
 let components = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -169,6 +181,9 @@ let components = {
   ProsCard,
   Callout,
   ConsCard,
+  IconBadge,
+  TextBadge,
+  ReusableHoverCard,
   code: Code,
   Table,
 };

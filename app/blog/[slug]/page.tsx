@@ -25,7 +25,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     image,
   } = post.metadata;
 
-  let ogImage = image ? `${baseUrl}${image}` : `${baseUrl}/og?title=${title}`;
+  let ogImage = image ? `${baseUrl}${image}` : `${baseUrl}/personal/Rahul3.jpg`;
 
   return {
     title,
@@ -90,7 +90,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
           {formatDate(post.metadata.publishedAt)}
         </p>
       </div>
-      <article className="prose prose-neutral max-w-none w-full dark:prose-invert">
+      <article className="prose">
         <CustomMDX source={post.content} />
       </article>
     </section>

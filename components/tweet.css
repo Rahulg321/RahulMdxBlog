@@ -61,7 +61,7 @@
 /* Dark theme link styles */
 @media (prefers-color-scheme: dark) {
   .tweet .react-tweet-theme p a {
-    @apply border-gray-500 text-white hover:border-white;
+    @apply border-gray-500 text-blue-400 dark:text-white dark:hover:border-white;
   }
 }
 

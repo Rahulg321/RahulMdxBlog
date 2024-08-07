@@ -8,11 +8,13 @@ const navItems = {
   "/work": {
     name: "work",
   },
+
+  "/project": {
+    name: "project",
+  },
+
   "/blog": {
     name: "blog",
-  },
-  "/contact": {
-    name: "contact",
   },
 };
 
