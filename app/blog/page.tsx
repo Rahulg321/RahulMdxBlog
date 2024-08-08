@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const page = () => {
   let allBlogs = getBlogPosts();
+  console.log("is this real");
   return (
     <section>
       <h2 className="mb-8 text-center md:text-left">Read my blog</h2>

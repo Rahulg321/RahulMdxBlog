@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa6";
 import { SiSolidity, SiTypescript } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
+import { Metadata } from "next";
 
 export default function Home() {
   return (

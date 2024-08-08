@@ -1,5 +1,11 @@
 import FeaturedProjectCard from "@/components/FeaturedProjectCard";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "A list of projects I have worked on",
+};
 
 const ProjectPage = () => {
   return (
