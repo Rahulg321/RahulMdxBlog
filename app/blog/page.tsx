@@ -26,7 +26,7 @@ const page = () => {
               <p className="text-neutral-600 dark:text-neutral-400 ">
                 {formatDate(post.metadata.publishedAt, false)}
               </p>
-              <span className="text-neutral-900 text-lg text-md font-medium dark:text-neutral-100 ">
+              <span className="text-neutral-900 text-base text-md font-medium dark:text-neutral-100 ">
                 {post.metadata.title}
               </span>
             </div>
