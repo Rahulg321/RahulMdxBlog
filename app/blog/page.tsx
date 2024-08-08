@@ -1,6 +1,13 @@
 import React from "react";
 import { formatDate, getBlogPosts } from "./utils";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Read my blog and learn about topics like blockchain, web dev, health and more",
+};
 
 const page = () => {
   let allBlogs = getBlogPosts();
