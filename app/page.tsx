@@ -7,6 +7,15 @@ import { Badge } from "@/components/ui/badge";
 import { RiNextjsFill } from "react-icons/ri";
 import FeaturedProjectCard from "@/components/FeaturedProjectCard";
 import IconBadge from "@/components/IconBadge";
+import {
+  FaReact,
+  FaRust,
+  FaTwitter,
+  FaUpwork,
+  FaXTwitter,
+} from "react-icons/fa6";
+import { SiSolidity, SiTypescript } from "react-icons/si";
+import { IoLogoFirebase } from "react-icons/io5";
 
 export default function Home() {
   return (
@@ -14,33 +23,56 @@ export default function Home() {
       <div className="mb-12">
         <h2 className="mb-8">hey, I am Rahul 👋</h2>
         <div className="">
-          <p className="">
-            I am a frontend developer, optimist, and community builder. I
-            currently specialize in building marketing websites for companies.
-            With two years{" "}
+          <p>
+            I am a software engineer with a passion for reading books, playing
+            badminton, and building communities on platforms like{" "}
             <IconBadge
-              icon={<RiNextjsFill className="inline mr-2 h-4 w-4" />}
-              tag="Nextjs"
+              icon={<FaXTwitter className="inline mr-2" />}
+              tag="Twitter"
+            />
+            . I love to experiment with new technologies and programming
+            languages, constantly seeking to expand my knowledge and skills.
+          </p>
+          <p>
+            Currently, I work part-time at a legal tech firm while also
+            freelancing on Upwork, where I build full-stack websites for
+            clients. My tech stack includes{" "}
+            <IconBadge
+              icon={
+                <FaReact className="inline mr-2  text-blue-800 dark:text-blue-400" />
+              }
+              tag="React"
+            />
+            ,{" "}
+            <IconBadge
+              icon={<RiNextjsFill className="inline mr-2" />}
+              tag="Next.js"
+            />
+            ,{" "}
+            <IconBadge
+              icon={<IoLogoFirebase className="inline mr-2 text-yellow-400 " />}
+              tag="Firebase"
+            />
+            , and PostgreSQL. Looking ahead, I plan to delve into web3 and
+            explore technologies like{" "}
+            <IconBadge
+              icon={<SiSolidity className="inline mr-2" />}
+              tag="Solidity"
             />{" "}
-            of coding experience, I am now a full-time freelancer and tester.{" "}
-          </p>
-
-          <p className="">
-            I am fine-tuning my freelancing business, sharing more online, and
-            leveling up my design skills. I enjoy crafting components and
-            experimenting new things.
-          </p>
-          <p className="">
-            If you would like to collaborate, feel free to send me an{" "}
-            <Link
-              href="mailto:rg5353070@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-black dark:text-white"
-            >
-              email
-            </Link>
+            and{" "}
+            <IconBadge
+              icon={
+                <FaRust className="inline mr-2 text-yellow-900 dark:text-yellow-700" />
+              }
+              tag="Rust"
+            />
             .
+          </p>
+          <p>
+            I&apos;m focused on fine-tuning my freelancing business, sharing my
+            journey online, and enhancing my design skills. I enjoy crafting
+            components and experimenting with innovative ideas. If you&apos;d
+            like to collaborate, feel free to send me an email.
           </p>
         </div>
       </div>
@@ -49,28 +81,31 @@ export default function Home() {
       </div>
       <h2 className="mt-12">Featured Projects</h2>
       <p className="">
-        I create educational content for developers, teaching them about web
-        development, JavaScript and TypeScript, React and <NextjsHoverCard />,
-        and more. This comes in all forms: blog posts, videos, tweets,
-        conference talks, and workshops. You can watch some of my favorites
-        below.
+        Working for my clients on platforms like{" "}
+        <IconBadge icon={<FaUpwork className="inline mr-2" />} tag="Upwork" />,
+        I have created a variety of projects, ranging from blog sites to
+        comprehensive marketing company websites. Below, you can find some of
+        the projects I have worked on.
       </p>
 
       <div className="space-y-4 mt-8">
         <FeaturedProjectCard
+          heading="Securities Law Blog"
+          websiteLink="https://aigbe-law-blog.vercel.app/"
+          githubLink="https://github.com/Rahulg321/Aigbe-Law-Blog"
+          description="blog for a private equity firm"
+        />
+        <FeaturedProjectCard
           heading="Dark Alpha Capital"
-          link="https://darkalphacapital.com/"
-          description="Company website for a private equity firm built using Nextjs and Prismic"
+          websiteLink="https://darkalphacapital.com/"
+          githubLink="https://github.com/Rahulg321/Dark-Alpha"
+          description="company website for a private equity firm"
         />
         <FeaturedProjectCard
-          heading="Aigbe Law Firm"
-          link="https://darkalphacapital.com/"
-          description="Company website for a private equity firm built using Nextjs and Prismic"
-        />
-        <FeaturedProjectCard
-          heading="Botbee-Labs"
-          link="https://darkalphacapital.com/"
-          description="Company website for a private equity firm built using Nextjs and Prismic"
+          heading="Aigbe Law PLLC "
+          websiteLink="https://law-offices-of-destiny-aigbe.vercel.app/"
+          githubLink="https://github.com/Rahulg321/Law-Offices-of-Destiny-Aigbe"
+          description="company website for a law firm built using nextjs and prismic"
         />
         <Link
           href={"/project"}
@@ -90,13 +125,14 @@ export default function Home() {
 
       <div className="space-y-4 mt-12">
         <FeaturedBlogCard
-          title="Best Content Management System?"
-          link="/blog/what-makes-a-great-dev-rel"
+          date="July 15, 2024"
+          title="Peer to Peer Networks"
+          link="/blog/peer-to-peer"
         />
-
         <FeaturedBlogCard
-          title="What makes a Great Dev Rel?"
-          link="/blog/what-makes-a-great-dev-rel"
+          title="Embracing The Grind"
+          date="June 21, 2024"
+          link="/blog/embracing-the-grind"
         />
 
         <Link
@@ -142,13 +178,24 @@ export default function Home() {
   );
 }
 
-function FeaturedBlogCard({ title, link }: { title: string; link: string }) {
+function FeaturedBlogCard({
+  title,
+  link,
+  date,
+}: {
+  title: string;
+  link: string;
+  date: string;
+}) {
   return (
     <Link
       href={link}
       className="rounded-lg border bg-muted p-4 flex justify-between items-center"
     >
-      <h4>{title}</h4>
+      <div>
+        <h4>{title}</h4>
+        <span className="text-muted-foreground">{date}</span>
+      </div>
       <MoveUpRight />
     </Link>
   );

@@ -38,7 +38,6 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <ModeToggle />
           </div>
         </nav>
       </div>

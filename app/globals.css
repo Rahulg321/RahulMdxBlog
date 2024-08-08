@@ -153,6 +153,10 @@ code {
   margin-top: 1.5rem;
 }
 
+.prose blockquote {
+  @apply mt-6 border-l-2 pl-6 italic;
+}
+
 pre {
   @apply p-4 overflow-scroll mt-8 overflow-y-auto;
 }

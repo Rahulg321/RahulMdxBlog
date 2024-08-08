@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import Link from "next/link";
+import SocialMediaLink from "./SocialMediaLink";
 
 const Footer = () => {
   return (
@@ -48,19 +49,6 @@ const Footer = () => {
 };
 
 export default Footer;
-
-function SocialMediaLink({ icon, link }: { icon: any; link: string }) {
-  return (
-    <Link
-      href={link}
-      className="text-2xl text-muted-foreground hover:text-black transition duration-300 ease-in-out dark:hover:text-gray-200"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {icon}
-    </Link>
-  );
-}
 
 function InspiredText({ text, textLink }: { text: string; textLink: string }) {
   return (
