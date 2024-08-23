@@ -99,7 +99,7 @@
   }
 
   p {
-    @apply leading-7  [&:not(:first-child)]:mt-6 font-medium;
+    @apply leading-7  [&:not(:first-child)]:mt-6;
   }
 
   .lead {
@@ -126,7 +126,7 @@ p,
 ul,
 li,
 a {
-  font-family: var(--font-syne);
+  font-family: var(--font-geist-sans);
 }
 
 /* Font for headings */

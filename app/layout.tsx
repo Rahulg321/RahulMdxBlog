@@ -9,6 +9,7 @@ import { baseUrl } from "./sitemap";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Navbar } from "@/components/nav";
 import Footer from "@/components/Footer";
+import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Lee Robinson",
+    title: "Rahul Gupta",
     card: "summary_large_image",
   },
   verification: {
@@ -57,7 +58,8 @@ export default function RootLayout({
       className={cn(
         montserrat.variable,
         syne.variable,
-        source_code_pro.variable
+        source_code_pro.variable,
+        GeistSans.variable
       )}
     >
       <body
