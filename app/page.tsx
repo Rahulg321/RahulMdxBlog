@@ -18,12 +18,30 @@ import { SiSolidity, SiTypescript } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { Metadata } from "next";
 import HeadingShine from "@/components/HeadingShine";
+import { TextTypingEffectWithTextsFadeOut } from "@/components/TextTypingEffect";
+import { CardSpotlight } from "@/components/CardSpotlight";
+import Profile from "@/components/Profile";
 
 export default function Home() {
   return (
     <section>
       <div className="mb-12">
-        <h2 className="mb-8">hey, I am Rahul 👋</h2>
+        <div className="mb-12">
+          <div className="mb-4">
+            <Profile />
+          </div>
+          <TextTypingEffectWithTextsFadeOut
+            classname="text-xl font-semibold"
+            texts={[
+              "hey, I am Rahul 👋",
+              "Welcome to my portfolio!",
+              "Learn about me!",
+              "View my projects",
+              "Read my blog",
+              "Connect with me",
+            ]}
+          />
+        </div>
         <div className="">
           <p>
             I am a software engineer with a passion for reading books, playing
