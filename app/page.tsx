@@ -17,6 +17,7 @@ import {
 import { SiSolidity, SiTypescript } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { Metadata } from "next";
+import HeadingShine from "@/components/HeadingShine";
 
 export default function Home() {
   return (
