@@ -25,7 +25,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     image,
   } = post.metadata;
 
-  let ogImage = image ? `${baseUrl}${image}` : `${baseUrl}/personal/Rahul3.jpg`;
+  let ogImage = image ? `${baseUrl}${image}` : `${baseUrl}/images/main-bg.jpg`;
   console.log("ogImage is", ogImage);
 
   return {
