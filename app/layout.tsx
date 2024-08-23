@@ -74,10 +74,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-            <div className="absolute top-8 right-8">
-              <ModeToggle />
+            <div className="">
+              <Navbar />
             </div>
-            <Navbar />
             {children}
             <Footer />
           </main>

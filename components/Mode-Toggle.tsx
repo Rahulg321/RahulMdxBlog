@@ -21,11 +21,21 @@ export function ModeToggle() {
   return (
     <div>
       {theme === "dark" ? (
-        <Button variant="outline" size="icon" onClick={toggleTheme}>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={toggleTheme}
+          className="bg-transparent border-none"
+        >
           <MoonIcon className="h-[1.2rem] w-[1.2rem] transition-all dark:scale-100" />
         </Button>
       ) : (
-        <Button variant="outline" size="icon" onClick={toggleTheme}>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={toggleTheme}
+          className="bg-transparent border-none"
+        >
           <SunIcon className="h-[1.2rem] w-[1.2rem] transition-all" />
         </Button>
       )}
