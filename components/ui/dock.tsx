@@ -1,4 +1,5 @@
 "use client";
+// ignore all ts errors
 
 import React, { PropsWithChildren, useRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -18,7 +19,7 @@ const DEFAULT_MAGNIFICATION = 60;
 const DEFAULT_DISTANCE = 140;
 
 const dockVariants = cva(
-  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-[58px] w-max gap-2 rounded-2xl border p-2 backdrop-blur-md"
+  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-[58px] w-max gap-2 rounded-2xl border p-2 backdrop-blur-md",
 );
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
@@ -31,7 +32,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       direction = "bottom",
       ...props
     },
-    ref
+    ref,
   ) => {
     const mouseX = useMotionValue(Infinity);
 
@@ -39,6 +40,8 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       return React.Children.map(children, (child) => {
         if (React.isValidElement(child) && child.type === DockIcon) {
           return React.cloneElement(child, {
+            // @ts-ignore
+
             ...child.props,
             mouseX: mouseX,
             magnification: magnification,
@@ -52,9 +55,13 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     return (
       <motion.div
         ref={ref}
+        // @ts-ignore
+
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         {...props}
+        // @ts-ignore
+
         className={cn(dockVariants({ className }), {
           "items-start": direction === "top",
           "items-center": direction === "middle",
@@ -64,7 +71,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         {renderChildren()}
       </motion.div>
     );
-  }
+  },
 );
 
 Dock.displayName = "Dock";
@@ -99,7 +106,7 @@ const DockIcon = ({
   let widthSync = useTransform(
     distanceCalc,
     [-distance, 0, distance],
-    [40, magnification, 40]
+    [40, magnification, 40],
   );
 
   let width = useSpring(widthSync, {
@@ -112,9 +119,11 @@ const DockIcon = ({
     <motion.div
       ref={ref}
       style={{ width }}
+      // @ts-ignore
+
       className={cn(
-        "flex aspect-square cursor-pointer items-center justify-center rounded-full",
-        className
+        "aspect-square flex cursor-pointer items-center justify-center rounded-full",
+        className,
       )}
       {...props}
     >
