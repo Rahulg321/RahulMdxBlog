@@ -8,7 +8,8 @@ import { getBlogPosts } from "../utils";
 export const runtime = "edge";
 
 // Image metadata
-export const alt = "About Acme";
+export const alt =
+  "Read my blog and learn about topics like blockchain, web dev, health and more";
 
 export const size = {
   width: 1200,
@@ -26,9 +27,9 @@ export default async function Image({
   };
 }) {
   // Font
-  const interSemiBold = fetch(
-    new URL("./Inter-SemiBold.ttf", import.meta.url),
-  ).then((res) => res.arrayBuffer());
+  const interSemiBold = fetch(new URL("./GeistVF.woff", import.meta.url)).then(
+    (res) => res.arrayBuffer(),
+  );
 
   const logoSrc = await fetch(new URL("./main-bg.png", import.meta.url)).then(
     (res) => res.arrayBuffer(),
