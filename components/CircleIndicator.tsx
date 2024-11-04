@@ -10,5 +10,7 @@ export const CircleIndicator = () => {
     restDelta: 0.001,
   });
 
+  // The scaleX value will be animated based on the scrollYProgress
+  // @ts-ignore
   return <motion.div className="progress-bar" style={{ scaleX }} />;
 };

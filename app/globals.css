@@ -99,7 +99,7 @@
   }
 
   p {
-    @apply leading-7  [&:not(:first-child)]:mt-6;
+    @apply leading-7 [&:not(:first-child)]:mt-6;
   }
 
   .lead {
@@ -107,15 +107,15 @@
   }
 
   ul {
-    @apply list-disc px-4 my-4;
+    @apply my-4 list-disc px-4;
   }
 
   ol {
-    @apply list-decimal px-4 my-4;
+    @apply my-4 list-decimal px-4;
   }
 
   .progress-bar {
-    @apply fixed top-0 left-0 right-0 h-[6px] bg-[purple] dark:bg-[#FFFFFF] origin-left z-[1000];
+    @apply fixed left-0 right-0 top-0 z-[1000] h-[6px] origin-left bg-[purple] dark:bg-[#FFFFFF];
   }
 }
 
@@ -162,12 +162,12 @@ code {
 }
 
 pre {
-  @apply p-4 overflow-scroll mt-8 overflow-y-auto;
+  @apply mt-8 overflow-scroll overflow-y-auto p-4;
 }
 
 pre,
 code {
-  @apply bg-neutral-900 rounded-lg dark:bg-neutral-900;
+  @apply rounded-lg bg-neutral-900 dark:bg-neutral-900;
 }
 
 .parent-container {

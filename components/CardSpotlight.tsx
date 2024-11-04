@@ -44,7 +44,7 @@ export const CardSpotlight = () => {
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative  rounded-3xl border dark:border-neutral-800 bg-muted dark:bg-neutral-950 p-8"
+      className="relative rounded-3xl border bg-muted p-8 dark:border-neutral-800 dark:bg-neutral-950"
     >
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-500"
@@ -56,7 +56,7 @@ export const CardSpotlight = () => {
       <div className="mb-4">
         <LockClosedIcon className="h-8 w-8" />
       </div>
-      <h3 className="mb-2 font-medium tracking-tight ">Focused Security</h3>
+      <h3 className="mb-2 font-medium tracking-tight">Focused Security</h3>
       <p className="">
         A spotlight on security, because the safety of your data is our
         priority.
