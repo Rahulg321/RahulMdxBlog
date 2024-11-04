@@ -51,11 +51,11 @@ const BentoGridImageLayout = ({ images }: { images: ImageItem[] }) => {
               src={e.src}
               alt={e.alt}
               className={cn(
-                "rounded-lg cursor-pointer transition-all duration-300 ease-in-out", // Always applied
+                "cursor-pointer rounded-lg transition-all duration-300 ease-in-out", // Always applied
                 {
                   "opacity-100": openImage !== e.src, // Normal opacity when not expanded
                   "opacity-50": openImage && openImage !== e.src, // Dim other images when one is expanded
-                }
+                },
               )}
               width={width}
               height={height}
@@ -71,10 +71,13 @@ const BentoGridImageLayout = ({ images }: { images: ImageItem[] }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="fixed inset-0 z-40 flex items-center justify-center bg-red overflow-hidden backdrop-blur-md"
+          // @ts-ignore
+          className={cn(
+            "bg-red fixed inset-0 z-40 flex items-center justify-center overflow-hidden backdrop-blur-md",
+          )}
         >
           <div
-            className="absolute top-4 z-50 right-4 text-white bg-neutral-900/80 p-2 rounded-full cursor-pointer"
+            className="absolute right-4 top-4 z-50 cursor-pointer rounded-full bg-neutral-900/80 p-2 text-white"
             onClick={closeImageHandler}
           >
             <Cross1Icon className="size-4 md:size-8" />
@@ -83,7 +86,7 @@ const BentoGridImageLayout = ({ images }: { images: ImageItem[] }) => {
             src={openImage}
             alt="Fullscreen image"
             fill
-            className="w-full h-full object-contain"
+            className="h-full w-full object-contain"
           />
         </motion.div>
       )}
