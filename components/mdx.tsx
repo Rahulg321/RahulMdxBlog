@@ -7,11 +7,15 @@ import { TweetComponent } from "./tweet";
 import ResuableHoverCard from "./ResuableHoverCard";
 import ReusableHoverCard from "./ResuableHoverCard";
 import TextBadge from "./TextBadge";
+import BlurFade from "./ui/blur-fade";
+import BentoGridImageLayout from "./BentoGridImageLayout";
+import FullScreenImageComponent from "./FullScreenImageComponent";
 
 function Table({ data }: any) {
   let headers = data.headers.map((header: any, index: any) => (
     <th key={index}>{header}</th>
   ));
+
   let rows = data.rows.map((row: any, index: any) => (
     <tr key={index}>
       {row.map((cell: any, cellIndex: any) => (
@@ -32,12 +36,12 @@ function Table({ data }: any) {
 
 function ProsCard({ title, pros }: any) {
   return (
-    <div className="border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full">
+    <div className="my-4 w-full rounded-xl border border-emerald-200 bg-neutral-50 p-6 dark:border-emerald-900 dark:bg-neutral-900">
       <span className="font-semibold">{`${title}`}</span>
       <div className="mt-4">
         {pros.map((pro: any) => (
-          <div key={pro} className="flex font-medium items-baseline mb-2">
-            <div className="h-4 w-4 mr-2">
+          <div key={pro} className="mb-2 flex items-baseline font-medium">
+            <div className="mr-2 h-4 w-4">
               <svg className="h-4 w-4 text-emerald-500" viewBox="0 0 24 24">
                 <g
                   fill="none"
@@ -61,12 +65,12 @@ function ProsCard({ title, pros }: any) {
 
 function ConsCard({ title, cons }: any) {
   return (
-    <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-6 w-full">
+    <div className="my-6 w-full rounded-xl border border-red-200 bg-neutral-50 p-6 dark:border-red-900 dark:bg-neutral-900">
       <span className="font-semibold">{`${title}`}</span>
       <div className="mt-4">
         {cons.map((con: any) => (
-          <div key={con} className="flex font-medium items-baseline mb-2">
-            <div className="h-4 w-4 mr-2">
+          <div key={con} className="mb-2 flex items-baseline font-medium">
+            <div className="mr-2 h-4 w-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -103,7 +107,7 @@ function CustomLink(props: any) {
 }
 
 function RoundedImage(props: any) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+  return <Image alt={props.alt} className="mt-4 rounded-lg" {...props} />;
 }
 
 function Code({ children, ...props }: any) {
@@ -141,7 +145,7 @@ function createHeading(level: any) {
           className: "anchor",
         }),
       ],
-      children
+      children,
     );
   };
 
@@ -152,16 +156,50 @@ function createHeading(level: any) {
 
 function Callout({ children, emoji }: any) {
   return (
-    <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
-      <div className="flex items-center w-4 mr-4">{emoji}</div>
-      <div className="w-full callout">{children}</div>
+    <div className="mb-8 flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 px-4 py-3 text-sm text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100">
+      <div className="mr-4 flex w-4 items-center">{emoji}</div>
+      <div className="callout w-full">{children}</div>
     </div>
   );
 }
 
+const SpotifyEmbed = ({ trackUrl, width = "100%", height = "152" }: any) => {
+  return (
+    <iframe
+      style={{ borderRadius: "12px", marginTop: "1rem" }}
+      src={trackUrl}
+      width={width}
+      height={height}
+      allowFullScreen
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+  );
+};
+
+// components/SpotifyArtistEmbed.js
+const SpotifyArtistEmbed = ({
+  artistUrl,
+  width = "100%",
+  height = "352",
+}: any) => {
+  return (
+    <iframe
+      style={{ borderRadius: "12px", marginTop: "1rem" }}
+      src={artistUrl}
+      width={width}
+      height={height}
+      frameBorder="0"
+      allowFullScreen
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+  );
+};
+
 function IconBadge({ icon, tag }: { icon: any; tag: string }) {
   return (
-    <span className="inline-block px-2 bg-neutral-200 dark:bg-neutral-600 rounded-full">
+    <span className="inline-block rounded-full bg-neutral-200 px-2 dark:bg-neutral-600">
       {icon}
       {tag}
     </span>
@@ -180,6 +218,10 @@ let components = {
   a: CustomLink,
   ProsCard,
   Callout,
+  SpotifyEmbed,
+  BentoGridImageLayout,
+  FullScreenImageComponent,
+  SpotifyArtistEmbed,
   ConsCard,
   IconBadge,
   TextBadge,

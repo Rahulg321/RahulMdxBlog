@@ -113,6 +113,10 @@
   ol {
     @apply list-decimal px-4 my-4;
   }
+
+  .progress-bar {
+    @apply fixed top-0 left-0 right-0 h-[6px] bg-[purple] dark:bg-[#FFFFFF] origin-left z-[1000];
+  }
 }
 
 ::selection {

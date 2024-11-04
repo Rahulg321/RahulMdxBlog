@@ -21,8 +21,9 @@ import HeadingShine from "@/components/HeadingShine";
 import { TextTypingEffectWithTextsFadeOut } from "@/components/TextTypingEffect";
 import { CardSpotlight } from "@/components/CardSpotlight";
 import Profile from "@/components/Profile";
+import { CircleIndicator } from "@/components/CircleIndicator";
 
-export default function Home() {
+export default async function Home() {
   return (
     <section>
       <div className="mb-12">
@@ -47,7 +48,7 @@ export default function Home() {
             I am a software engineer with a passion for reading books, playing
             badminton, and building communities on platforms like{" "}
             <IconBadge
-              icon={<FaXTwitter className="inline mr-2" />}
+              icon={<FaXTwitter className="mr-2 inline" />}
               tag="Twitter"
             />
             . I love to experiment with new technologies and programming
@@ -59,30 +60,30 @@ export default function Home() {
             clients. My tech stack includes{" "}
             <IconBadge
               icon={
-                <FaReact className="inline mr-2  text-blue-800 dark:text-blue-400" />
+                <FaReact className="mr-2 inline text-blue-800 dark:text-blue-400" />
               }
               tag="React"
             />
             ,{" "}
             <IconBadge
-              icon={<RiNextjsFill className="inline mr-2" />}
+              icon={<RiNextjsFill className="mr-2 inline" />}
               tag="Next.js"
             />
             ,{" "}
             <IconBadge
-              icon={<IoLogoFirebase className="inline mr-2 text-yellow-400 " />}
+              icon={<IoLogoFirebase className="mr-2 inline text-yellow-400" />}
               tag="Firebase"
             />
             , and PostgreSQL. Looking ahead, I plan to delve into web3 and
             explore technologies like{" "}
             <IconBadge
-              icon={<SiSolidity className="inline mr-2" />}
+              icon={<SiSolidity className="mr-2 inline" />}
               tag="Solidity"
             />{" "}
             and{" "}
             <IconBadge
               icon={
-                <FaRust className="inline mr-2 text-yellow-900 dark:text-yellow-700" />
+                <FaRust className="mr-2 inline text-yellow-900 dark:text-yellow-700" />
               }
               tag="Rust"
             />
@@ -102,13 +103,13 @@ export default function Home() {
       <h2 className="mt-12">Featured Projects</h2>
       <p className="">
         Working for my clients on platforms like{" "}
-        <IconBadge icon={<FaUpwork className="inline mr-2" />} tag="Upwork" />,
+        <IconBadge icon={<FaUpwork className="mr-2 inline" />} tag="Upwork" />,
         I have created a variety of projects, ranging from blog sites to
         comprehensive marketing company websites. Below, you can find some of
         the projects I have worked on.
       </p>
 
-      <div className="space-y-4 mt-8">
+      <div className="mt-8 space-y-4">
         <FeaturedProjectCard
           heading="Securities Law Blog"
           websiteLink="https://aigbe-law-blog.vercel.app/"
@@ -129,7 +130,7 @@ export default function Home() {
         />
         <Link
           href={"/project"}
-          className="flex justify-end text-muted-foreground hover:text-foreground  hover:underline transition-all duration-300 ease-in-out items-center gap-2"
+          className="flex items-center justify-end gap-2 text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground hover:underline"
         >
           All Projects
         </Link>
@@ -143,7 +144,7 @@ export default function Home() {
         in my career, sharing knowledge along the way.
       </p>
 
-      <div className="space-y-4 mt-12">
+      <div className="mt-12 space-y-4">
         <FeaturedBlogCard
           date="July 15, 2024"
           title="Peer to Peer Networks"
@@ -157,7 +158,7 @@ export default function Home() {
 
         <Link
           href={"/blog"}
-          className="flex justify-end text-muted-foreground hover:text-foreground  hover:underline transition-all duration-300 ease-in-out items-center gap-2"
+          className="flex items-center justify-end gap-2 text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground hover:underline"
         >
           All Blogs
         </Link>
@@ -170,7 +171,7 @@ export default function Home() {
           href={"https://x.com/rg5353070"}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline "
+          className="underline"
         >
           Twitter
         </Link>
@@ -179,7 +180,7 @@ export default function Home() {
           href={"https://github.com/Rahulg321"}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline "
+          className="underline"
         >
           Github
         </Link>
@@ -188,7 +189,7 @@ export default function Home() {
           href={"https://read.cv/rg5353070"}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline "
+          className="underline"
         >
           Read.cv
         </Link>
@@ -210,7 +211,7 @@ function FeaturedBlogCard({
   return (
     <Link
       href={link}
-      className="rounded-lg border bg-muted p-4 flex justify-between items-center"
+      className="flex items-center justify-between rounded-lg border bg-muted p-4"
     >
       <div>
         <h4>{title}</h4>

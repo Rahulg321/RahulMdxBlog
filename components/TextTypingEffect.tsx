@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const useTypingEffect = (
   text: string,
   duration: number,
-  isTypeByLetter = false
+  isTypeByLetter = false,
 ) => {
   const [currentPosition, setCurrentPosition] = useState(0);
   const items = isTypeByLetter ? text.split("") : text.split(" ");
@@ -57,7 +57,7 @@ export const TextTypingEffectWithTextsFadeOut = ({
 
       setTimeout(() => {
         setTextIndex((prevIndex) =>
-          prevIndex >= texts.length - 1 ? 0 : prevIndex + 1
+          prevIndex >= texts.length - 1 ? 0 : prevIndex + 1,
         );
         setFadeCircle(true);
         setFadeText(true);

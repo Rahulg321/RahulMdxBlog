@@ -22,19 +22,19 @@ export function ModeToggle() {
     <div>
       {theme === "dark" ? (
         <Button
-          variant="outline"
+          variant="ghost"
           size="icon"
           onClick={toggleTheme}
-          className="bg-transparent border-none"
+          className=" border-none"
         >
-          <MoonIcon className="h-[1.2rem] w-[1.2rem] transition-all dark:scale-100" />
+          <MoonIcon className="h-[1.2rem] w-[1.2rem] transition-all" />
         </Button>
       ) : (
         <Button
-          variant="outline"
+          variant="ghost"
           size="icon"
           onClick={toggleTheme}
-          className="bg-transparent border-none"
+          className="border-none"
         >
           <SunIcon className="h-[1.2rem] w-[1.2rem] transition-all" />
         </Button>

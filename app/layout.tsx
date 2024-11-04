@@ -10,6 +10,8 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Navbar } from "@/components/nav";
 import Footer from "@/components/Footer";
 import { GeistSans } from "geist/font/sans";
+import BottomDock from "@/components/BottomDock";
+import { CircleIndicator } from "@/components/CircleIndicator";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -69,11 +71,14 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+            <div className="absolute top-4 right-4 md:top-6 md:right-6 lg:top-8 lg:right-8">
+              <ModeToggle />
+            </div>
             <div className="">
               <Navbar />
             </div>

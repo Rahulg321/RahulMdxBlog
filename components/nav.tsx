@@ -2,7 +2,14 @@
 
 import Link from "next/link";
 import { ModeToggle } from "./Mode-Toggle";
-import { Code, FlaskConical, House, Newspaper } from "lucide-react";
+import {
+  Code,
+  FlaskConical,
+  House,
+  IndianRupee,
+  Newspaper,
+  Sun,
+} from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -11,24 +18,63 @@ import {
 } from "@/components/ui/tooltip";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Dock, DockIcon } from "@/components/ui/dock";
+import {
+  FaGithub,
+  FaGoogle,
+  FaInstagram,
+  FaLinkedin,
+  FaWhatsapp,
+  FaXTwitter,
+} from "react-icons/fa6";
+import { Separator } from "./ui/separator";
+import { Button, buttonVariants } from "./ui/button";
 
-const navItems = {
-  "/": {
-    name: "home",
-    icon: <House className="md:size-6" />,
-  },
-  "/work": {
-    name: "work",
-    icon: <Code className="md:size-6" />,
-  },
-  "/project": {
-    name: "project",
-    icon: <FlaskConical className="md:size-6" />,
-  },
-  "/blog": {
-    name: "blog",
-    icon: <Newspaper className="md:size-6" />,
-  },
+const DATA = {
+  navbar: [
+    {
+      name: "home",
+      icon: <House className="" />,
+      href: "/",
+    },
+    {
+      name: "work",
+      icon: <Code className="" />,
+      href: "/work",
+    },
+    {
+      name: "project",
+      icon: <FlaskConical className="" />,
+      href: "/project",
+    },
+    {
+      name: "blog",
+      icon: <Newspaper className="" />,
+      href: "/blog",
+    },
+  ],
+  social: [
+    {
+      name: "github",
+      icon: <FaGithub className="" />,
+      href: "https://github.com/Rahulg321?tab=repositories",
+    },
+    {
+      name: "twitter",
+      icon: <FaXTwitter className="" />,
+      href: "https://x.com/rg5353070",
+    },
+    {
+      name: "linkedin",
+      icon: <FaLinkedin className="" />,
+      href: "https://www.linkedin.com/in/rahul-gupta-86194a213/",
+    },
+    {
+      name: "instagram",
+      icon: <FaInstagram className="" />,
+      href: "https://www.instagram.com/_rahulgupta321_/",
+    },
+  ],
 };
 
 export function Navbar() {
@@ -36,33 +82,41 @@ export function Navbar() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-20 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:bottom-4">
-      <div className="bg-neutral-100 dark:bg-neutral-800 w-full sm:w-fit border px-2 py-1 sm:rounded-lg mx-auto">
-        <div className="flex items-center justify-between w-full gap-2">
-          {Object.entries(navItems).map(([path, { name, icon }]) => {
-            const isActive = pathname === path;
-            return (
-              <TooltipProvider key={path}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={path}
-                      className={cn(
-                        "transition-all rounded-lg px-2 py-2",
-                        isActive ? "bg-white dark:bg-neutral-700" : ""
-                      )}
-                    >
-                      {icon}
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{name}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            );
-          })}
-          <ModeToggle />
-        </div>
+      <div className="sm:rounded-lg mx-auto">
+        <TooltipProvider>
+          <Dock
+            direction="bottom"
+            className="w-full bg-background sm:w-fit justify-center"
+          >
+            {Object.entries(DATA.navbar).map(([path, { name, icon, href }]) => {
+              const isActive = pathname === path;
+              return (
+                <DockIcon key={path}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Link
+                        href={href}
+                        aria-label={`Go to {name}`}
+                        className={cn(
+                          buttonVariants({
+                            variant: "ghost",
+                            size: "icon",
+                          }),
+                          "size-6 md:size-8 lg:size-12 rounded-full"
+                        )}
+                      >
+                        {icon}
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </DockIcon>
+              );
+            })}
+          </Dock>
+        </TooltipProvider>
       </div>
     </nav>
   );

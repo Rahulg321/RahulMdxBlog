@@ -69,11 +69,26 @@ export function getBlogPosts(): MDXData[] {
   return getMDXData(path.join(process.cwd(), "app", "blog", "posts"));
 }
 
+export function getBlogPostsWithCategory(category?: string): MDXData[] {
+  let allPosts = getMDXData(path.join(process.cwd(), "app", "blog", "posts"));
+
+  // If a category is provided, filter the posts by that category
+  if (category) {
+    return allPosts.filter(
+      (post) => post.metadata.category.toLowerCase() === category.toLowerCase(),
+    );
+  }
+
+  // Return all posts if no category filter is provided
+  return allPosts;
+}
+
 export function formatDate(date: string, includeRelative = false): string {
   let currentDate = new Date();
   if (!date.includes("T")) {
     date = `${date}T00:00:00`;
   }
+
   let targetDate = new Date(date);
 
   let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();

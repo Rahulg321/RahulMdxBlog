@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { formatDate, getBlogPosts } from "../utils";
 import { CustomMDX } from "@/components/mdx";
 import { baseUrl } from "@/app/sitemap";
+import { CircleIndicator } from "@/components/CircleIndicator";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -11,7 +12,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -26,23 +28,10 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   } = post.metadata;
 
   let ogImage = image ? `${baseUrl}${image}` : `${baseUrl}/images/main-bg.jpg`;
-  console.log("ogImage is", ogImage);
 
   return {
     title,
     description,
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
     twitter: {
       card: "summary_large_image",
       title,
@@ -52,7 +41,8 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function Blog({ params }: { params: { slug: string } }) {
+export default async function Blog(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -61,6 +51,8 @@ export default function Blog({ params }: { params: { slug: string } }) {
 
   return (
     <section>
+      <CircleIndicator />
+
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -83,10 +75,10 @@ export default function Blog({ params }: { params: { slug: string } }) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
+      <h1 className="title text-2xl font-semibold tracking-tighter">
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
+      <div className="mb-8 mt-2 flex items-center justify-between text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {formatDate(post.metadata.publishedAt)}
         </p>
