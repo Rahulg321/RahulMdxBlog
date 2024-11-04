@@ -27,11 +27,11 @@ export default async function Image({
 }) {
   // Font
   const interSemiBold = fetch(
-    new URL("./Inter-SemiBold.ttf", import.meta.url)
+    new URL("./Inter-SemiBold.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   const logoSrc = await fetch(new URL("./main-bg.png", import.meta.url)).then(
-    (res) => res.arrayBuffer()
+    (res) => res.arrayBuffer(),
   );
 
   let post = getBlogPosts().find((post) => post.slug === params.slug);
@@ -61,6 +61,6 @@ export default async function Image({
           weight: 400,
         },
       ],
-    }
+    },
   );
 }
