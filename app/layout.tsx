@@ -15,6 +15,7 @@ import { CircleIndicator } from "@/components/CircleIndicator";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
+  manifest: "./manifest.json",
   title: {
     default: "Rahul Gupta",
     template: "%s | Rahul Gupta",
@@ -61,12 +62,12 @@ export default function RootLayout({
         montserrat.variable,
         syne.variable,
         source_code_pro.variable,
-        GeistSans.variable
+        GeistSans.variable,
       )}
     >
       <body
         className={cn(
-          "min-h-screen max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] dark:bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] antialiased"
+          "mx-4 mb-40 mt-8 flex min-h-screen max-w-2xl flex-col bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] antialiased dark:bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] md:flex-row lg:mx-auto",
         )}
       >
         <ThemeProvider
@@ -75,8 +76,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-            <div className="absolute top-4 right-4 md:top-6 md:right-6 lg:top-8 lg:right-8">
+          <main className="mt-6 flex min-w-0 flex-auto flex-col px-2 md:px-0">
+            <div className="absolute right-4 top-4 md:right-6 md:top-6 lg:right-8 lg:top-8">
               <ModeToggle />
             </div>
             <div className="">
