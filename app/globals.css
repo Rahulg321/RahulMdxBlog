@@ -117,6 +117,10 @@
   .progress-bar {
     @apply fixed left-0 right-0 top-0 z-[1000] h-[6px] origin-left bg-[purple] dark:bg-[#FFFFFF];
   }
+
+  .custom-container {
+    @apply mx-4 max-w-2xl md:flex-row lg:mx-auto;
+  }
 }
 
 ::selection {
@@ -201,6 +205,7 @@ code {
 .blog-index {
   display: columns;
   columns: 3;
+  column-gap: 1em;
 }
 
 .blog-index > * {
@@ -208,7 +213,7 @@ code {
   margin-bottom: 1em;
 }
 
-/* 
+/*
 .marquee {
   width: 100%;
   overflow: hidden;

@@ -26,6 +26,7 @@ function Category({ text }: { text: string }) {
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
+      console.log("params are", params);
       params.set(name, value);
 
       return params.toString();

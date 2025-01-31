@@ -1,9 +1,20 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import imagemin from "imagemin";
+import imageminJpegtran from "imagemin-jpegtran";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+
+export async function getBase64ImageUrl(imageUrl: string) {
+  // fetch image and convert it to base64
+
+  return `data:image/jpeg;base64`;
+}
+
+
 
 // export const getPlaceholderForRemoteImage = async (url: string) => {
 //   try {
