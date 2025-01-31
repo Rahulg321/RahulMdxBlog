@@ -16,7 +16,8 @@ import {
     Code,
     Package,
     Moon,
-    Sun
+    Sun,
+    Briefcase
 } from "lucide-react"
 import { Dock } from './21dev/dock-two'
 import { useRouter } from 'next/navigation';
@@ -37,6 +38,11 @@ const MainDock = () => {
             icon: Code,
             label: "Work",
             onClick: () => router.push("/work")
+        },
+        {
+            icon: Briefcase,
+            label: "Projects",
+            onClick: () => router.push("/project")
         },
         {
             icon: Pen,
