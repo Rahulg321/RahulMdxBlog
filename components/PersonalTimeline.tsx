@@ -5,10 +5,9 @@ import { Timeline } from "./21dev/timeline";
 export function TimelineDemo() {
   const data = [
     {
-      title: "2023 — Present",
+      title: "2021 — 2024",
       content: (
         <div>
-          <h2>Upwork</h2>
           <p className="mb-4 font-normal text-neutral-700 dark:text-neutral-300">
             Started working on Upwork in December 2023. Initially applied to
             many different jobs but was not successful until 2024 when I finally
@@ -28,9 +27,10 @@ export function TimelineDemo() {
       ),
     },
     {
-      title: "2021 — 2024",
+      title: "2023 — Present",
       content: (
         <div>
+          <h2>Upwork</h2>
           <p className="mb-4 font-normal text-neutral-700 dark:text-neutral-300">
             Started working on Upwork in December 2023. Initially applied to
             many different jobs but was not successful until 2024 when I finally
