@@ -26,7 +26,7 @@ export default async function Image(props: {
     (
       <div
         style={{
-          background: "#18191B",
+          background: "#fff",
           color: "#fff",
           width: "100%",
           height: "100%",
@@ -34,7 +34,7 @@ export default async function Image(props: {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          fontFamily: "Montserrat, Arial Black, Arial, sans-serif",
+          fontFamily: "Syne, Arial Black, Arial, sans-serif",
           padding: 60,
           boxSizing: "border-box",
         }}
