@@ -134,7 +134,7 @@ p,
 ul,
 li,
 a {
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-syne);
 }
 
 /* Font for headings */
@@ -144,7 +144,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-montserrat);
+  font-family: var(--font-syne);
 }
 
 /* Font for code blocks and inline code */
