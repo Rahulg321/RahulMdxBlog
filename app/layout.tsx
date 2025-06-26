@@ -80,7 +80,6 @@ export default function RootLayout({
               <MainDock />
             </div>
             {children}
-            <div className="pointer-events-none absolute inset-0 -z-40 h-full w-full bg-[url('/noisetexture.jpg')] opacity-40 mix-blend-soft-light"></div>
             <Footer />
           </main>
         </ThemeProvider>

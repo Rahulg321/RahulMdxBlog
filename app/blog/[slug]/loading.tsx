@@ -5,7 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const LoadingSpinner = () => {
   return (
-    <div>
+    <div className="narrow-container block-space">
       <div className="flex items-center space-x-4">
         <Skeleton className="h-12 w-12 rounded-full" />
         <div className="space-y-2">

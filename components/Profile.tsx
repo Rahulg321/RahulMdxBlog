@@ -9,7 +9,7 @@ export default function Profile() {
           alt="Profile picture"
         />
         <AvatarFallback>RG</AvatarFallback>
-      </Avatar>
+      </Avatar> 
       <div>
         <h2 className="text-xl font-semibold ">Rahul Gupta</h2>
         <span className="text-sm text-gray-500">Software Engineer</span>

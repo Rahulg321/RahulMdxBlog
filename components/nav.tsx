@@ -52,6 +52,11 @@ const DATA = {
       icon: <Newspaper className="" />,
       href: "/blog",
     },
+    {
+      name: "musings",
+      icon: <Sun className="" />,
+      href: "/musings",
+    },
   ],
   social: [
     {

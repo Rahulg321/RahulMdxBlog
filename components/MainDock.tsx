@@ -27,7 +27,6 @@ const MainDock = () => {
   const { theme, setTheme } = useTheme();
   const router = useRouter();
 
-  // Add "onClick" that calls router.push() for each route you want.
   const items = [
     {
       icon: Home,
@@ -59,8 +58,11 @@ const MainDock = () => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-20 md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:transform">
-      <Dock items={items} className="w-full" />
+    <div className="fixed bottom-0 left-0 right-0 z-20 lg:bottom-auto lg:left-8 lg:right-auto lg:top-8 lg:flex lg:h-auto lg:w-auto lg:flex-col lg:items-start lg:rounded-2xl lg:border lg:border-border lg:shadow-lg">
+      <Dock
+        items={items}
+        className="w-full flex-row lg:h-auto lg:w-auto lg:flex-col lg:gap-2"
+      />
     </div>
   );
 };
