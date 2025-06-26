@@ -23,6 +23,12 @@ import { CardSpotlight } from "@/components/CardSpotlight";
 import Profile from "@/components/Profile";
 import { CircleIndicator } from "@/components/CircleIndicator";
 
+export const metadata: Metadata = {
+  title: "Home Page",
+  description:
+    "Welcome to home page of Rahul Gupta Portfolio. Explore my projects, blogs, and connect with me.",
+};
+
 export default async function Home() {
   return (
     <section className="custom-container">
@@ -39,7 +45,7 @@ export default async function Home() {
               "Learn about me!",
               "View my projects",
               "Read my blog",
-              "Connect with me",
+              "Let's Connect",
             ]}
           />
         </div>
