@@ -22,24 +22,9 @@ export async function generateMetadata(props: {
     return;
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata;
-
-  let ogImage = image ? `${baseUrl}${image}` : `${baseUrl}/images/main-bg.jpg`;
-
   return {
-    title,
-    description,
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
+    title: post.metadata.title,
+    description: post.metadata.summary,
   };
 }
 
@@ -57,28 +42,6 @@ export default async function Blog(props: {
     <section className="narrow-container block-space-mini">
       <CircleIndicator />
 
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${baseUrl}${post.metadata.image}`
-              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
-            author: {
-              "@type": "Person",
-              name: "Rahul Gupta",
-            },
-          }),
-        }}
-      />
       <h1 className="title text-2xl font-semibold tracking-tighter">
         {post.metadata.title}
       </h1>

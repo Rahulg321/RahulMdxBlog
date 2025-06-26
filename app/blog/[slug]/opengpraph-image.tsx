@@ -17,6 +17,7 @@ export default async function Image(props: {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
+    console.log("Post not found", params.slug);
     notFound();
   }
 
