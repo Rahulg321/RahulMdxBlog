@@ -18,13 +18,9 @@ export async function generateMetadata(props: {
   const params = await props.params;
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 
-  if (!post) {
-    return;
-  }
-
   return {
-    title: post.metadata.title,
-    description: post.metadata.summary,
+    title: `${post?.metadata.title ?? "Blog"}`,
+    description: `${post?.metadata.summary ?? "Blog"}`,
   };
 }
 
